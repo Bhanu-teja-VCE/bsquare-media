@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-bg: var(--theme-bg);
+  --color-text-primary: var(--theme-text-primary);
+  --color-text-secondary: var(--theme-text-secondary);
+  --color-accent: var(--theme-accent);
+  --color-accent-hover: var(--theme-accent-hover);
+  --color-accent-text: var(--theme-accent-text);
+  --color-card-bg: var(--theme-card-bg);
+  --color-border: var(--theme-border);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  :root {
+    /* Nordic Gallery (Light Mode) */
+    --theme-bg: #F5F5F7;
+    --theme-text-primary: #1D1D1F;
+    --theme-text-secondary: #86868B;
+    --theme-accent: #002366;
+    --theme-accent-hover: #001b4d;
+    --theme-accent-text: #FFFFFF;
+    --theme-card-bg: rgba(255, 255, 255, 0.6);
+    --theme-border: rgba(0, 0, 0, 0.08);
+  }
+
+  .dark {
+    /* Midnight Executive (Dark Mode) */
+    --theme-bg: #121212;
+    --theme-text-primary: #FFFFFF;
+    --theme-text-secondary: #A8A9AD;
+    --theme-accent: #D4AF37;
+    --theme-accent-hover: #b5952f;
+    --theme-accent-text: #121212;
+    --theme-card-bg: rgba(26, 26, 26, 0.4);
+    --theme-border: rgba(255, 255, 255, 0.08);
+  }
+
+  body {
+    @apply bg-bg text-text-primary font-sans antialiased transition-colors duration-500;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-card-bg backdrop-blur-xl border border-border transition-colors duration-500;
+  }
+  .glass-panel-hover {
+    @apply hover:bg-card-bg/80 hover:border-accent/50 transition-all duration-500;
+  }
+}
